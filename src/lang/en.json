@@ -1,0 +1,14 @@
+{
+    "navbar.appName": "esh",
+    "navbar.linkHome": "Home",
+    "navbar.linkBlog": "Blog",
+    "footer.accessibility": "Accessability Statement",
+    "footer.note": "esh is a registered trademark of esh Org Ltd. and its affiliates.",
+    "post.back": "< Back",
+    "post.notification": "Note: All official esh information, including press releases, will be published solely through this website. If you are interested in following our progress, please subscribe by entering your email address below.",
+    "post.by": "By",
+    "feedback.title": "Stay up to date with our latest news",
+    "feedback.placeholder": "Enter your email address",
+    "feedback.submit": "subscribe",
+    "feedback.notification": "By submitting my email address, I agree to receive marketing emails, newsletters and updates."
+}

@@ -1,0 +1,14 @@
+{
+    "navbar.appName": "אש",
+    "navbar.linkHome": "ראשי",
+    "navbar.linkBlog": "בלוג",
+    "footer.accessibility": "הצהרת נגישות",
+    "footer.note": "esh is a registered trademark of esh Org Ltd. and its affiliates.",
+    "post.back": "< אחורה",
+    "post.by": "",
+    "post.notification": "הערה: כל המידע הרשמי של esh, לרבות הודעות לעיתונות, יפורסם דרך אתר זה. מי שמעוניין לעקוב אחר ההתקדמות שלנו, ניתן להירשם לקבלת עדכונים על ידי הזנת כתובת הדואר האלקטרוני למטה.",
+    "feedback.title": "תתעדכנו בחדשות האחרונות שלנו לפני כולם",
+    "feedback.placeholder": "הכניסו את כתובת המייל",
+    "feedback.submit": "להצטרפות",
+    "feedback.notification": "במסירת פרטי הדוא״ל שלי, אני מסכימ/ה לקבל מכם דואר פרסומי, ניוזלטרים ועדכונים."
+}
