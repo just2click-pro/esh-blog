@@ -1,47 +1,54 @@
-# Getting Started with Create React App
+# Dror Avidov esh-blog Home Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This is a React based project that mimics the original [esh.com](http://esh.com) website
 
-In the project directory, you can run:
+- This is a home assignment I've received.
+- It includes alsmost all of the animations used in the original website
+- It includes support for both English and Hebrew languages - also switching directions when needed
+- It uses a .json file as it's "databse" for the content of the blog posts (which were copied both in English and in Hebrew)
+- During development I used the .json file running it with ```json-server```
 
-### `yarn start`
+## Table of Contents (Optional)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If your README is long, add a table of contents to make it easy for users to find what they need.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
-### `yarn test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a standard React Porject
+In order to install it, you need to:
+* Pull this repository
+* Browse into the project folder and run `yarn`
+* Then run `yarn start`
+* You may need to install `json-server` first, do that by running: `npm install -g json-server`
+* Open another terminal and and run `json-server --watch blogDB.json --port 3004`
+* I have included the `.env` file although it is not recommended
 
-### `yarn build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As requested, this project contains three pages:
+* Home page - with some animations and a navigation bar
+* Blog page - with the current posts that are available from the "database"
+* Post page - that displays the current post only and is styled accordingly
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Notes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* I used the 'Monserrat' font as the original font 'Piloni' isn't a free font
+* I didn't follow the animations to the exact same accuracy as the original
+* I used React MUI library to style the website - due to the short time I was given I did't fully used feeatures like theming
+* I used `useReducer` hook and state to handle both language changes (so I can swith directions) and for the current path (so I can control the different color schemes between the Home page and the rest of the pages)
+* I used React `useContext` feature to wrap te app and "listen" to the state changes
+* I treid to do something similar (using a context) in order to have one data featching module but since it got too buggy I'm just fetching data as needed using `axios`
 
-### `yarn eject`
+## Credits
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I've developed this project by myself. It took me about 12 hours all-in-all. I'm aware of the assignments reauirements but wht I did is first built some infrastructure components and spent much less time doing the actual styling and fine tunning for the 'esh-blog'
+## License
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# esh-blog
+[MIT License](https://choosealicense.com/licenses/mit/).
