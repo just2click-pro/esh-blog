@@ -154,7 +154,6 @@ const Navbar: FC = (): ReactElement => {
                                 flexDirection: "row",
                                 justifyContent: "flex-start",
                                 alignItems: "center",
-                                marginLeft: "1rem",
                             }}
                         >
                             {routes.map((page) => (
@@ -165,7 +164,7 @@ const Navbar: FC = (): ReactElement => {
                                     style={{
                                         color: navbarColors.color,
                                         fontSize: "12px", fontFamily: "Montserrat",
-                                        marginLeft: "2rem",
+                                        margin: "0 1rem",
                                         textDecoration: "none"
                                     }}
                                     onClick={() => {

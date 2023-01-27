@@ -14,7 +14,7 @@ export interface State {
 }
 
 export const initialState: State = {
-    route: "/",
+    route: window.location.pathname,
     lang: "en",
 }
 
