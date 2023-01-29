@@ -14,7 +14,6 @@ import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
 
 const App: FC<any> = (): ReactElement => {
-  const URL = process.env.REACT_APP_DB_URL || "";
   const { i18n } = useTranslation(['main'])
   const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -28,9 +27,9 @@ const App: FC<any> = (): ReactElement => {
 
   useEffect(() => {
     i18n.changeLanguage(state.lang)
-    setBackgroundcolor(state.route === "/" ? "#F0E1F6" : "white")
+    setBackgroundcolor(window.location.pathname === "/" ? "#F0E1F6" : "white")
     setDirection(state.lang === "he" ? "rtl" : "ltr")
-  }, [state.lang, state.route])
+  }, [state.lang, i18n])
 
   return (
     <StateContext.Provider value={providerState}>
@@ -49,10 +48,7 @@ const App: FC<any> = (): ReactElement => {
                 />
               ))}
             </Routes>
-            <Box width="100vw" display="flex"
-              sx={{ justifyContent: "center", paddingLeft: "15%", paddingRight: "15%" }}>
-              <Footer />
-            </Box>
+            <Footer />
           </Router>
         </Box>
       </ThemeProvider>

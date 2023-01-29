@@ -1,32 +1,32 @@
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 import { Box, Container, Grid, Typography } from "@mui/material";
 
-import { useStateContext } from '../context/StateContext';
-
 export const Footer: FC = (): ReactElement => {
-    const { state, dispatch } = useStateContext()
-    const { t, i18n } = useTranslation(['main'])
+    const location = useLocation()
+    const { t } = useTranslation(['main'])
 
     const [backgroundColor, setBackgroundcolor] = useState("#F0E1F6")
 
     useEffect(() => {
-        setBackgroundcolor(state.route === "/" ? "#F0E1F6" : "white")
-    }, [state.route])
+        setBackgroundcolor(location.pathname === "/" ? "#F0E1F6" : "white")
+    }, [location.pathname, location])
+
+    const footerCommonStyle = () => {
+        return {
+            width: "100vw",
+            height: "5.5rem",
+            padding: "1rem",
+            borderTop: "1px solid",
+            borderTopColor: "secondary.dark",
+            backgroundColor: `${backgroundColor}`
+        }
+    }
 
     return (
-        <Box
-            sx={{
-                width: "100%",
-                height: "5.5rem",
-                backgroundColor: `${backgroundColor}`,
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
-                borderTop: "1px solid",
-                borderTopColor: "secondary.dark",
-            }}
-        >
+        <Box sx={footerCommonStyle}>
             <Container maxWidth="xl" sx={{ paddingLeft: 0, paddingRight: 0 }}>
                 <Grid container direction="column" alignItems="center">
                     <Grid item xs={12} alignSelf="start">
@@ -34,6 +34,7 @@ export const Footer: FC = (): ReactElement => {
                             <a
                                 style={{ color: "#2E2F38", textDecoration: "none" }}
                                 target="_blank"
+                                rel="noreferrer"
                                 href="https://www.esh.com/accessibility-statement">
                                 {t("footer.accessibility", { ns: ['main'] })}
                             </a>

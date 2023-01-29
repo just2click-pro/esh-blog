@@ -2,10 +2,11 @@ import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Box, Button, ButtonGroup, Container, Grid, Typography } from "@mui/material";
-import FormControl, { useFormControl } from '@mui/material/FormControl';
+import FormControl from '@mui/material/FormControl';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from "@mui/material/styles"
 
+import { topBoxStyle, outlinedInputStyle } from "../common/styling"
 import { useStateContext } from '../context/StateContext';
 
 const FeedbackButton = styled(Button)((props) => ({
@@ -21,9 +22,11 @@ const FeedbackButton = styled(Button)((props) => ({
     height: "3.3rem"
 }))
 
+const titleStyle = { fontFamily: "Montserrat", fontSize: "16px", fontWeight: "500", }
+
 export const FeedbackBox: FC = (): ReactElement => {
-    const { state, dispatch } = useStateContext()
-    const { t, i18n } = useTranslation(['main'])
+    const { state } = useStateContext()
+    const { t } = useTranslation(['main'])
     const [right, setRight] = useState("0")
     const [left, setLeft] = useState("none")
 
@@ -38,13 +41,7 @@ export const FeedbackBox: FC = (): ReactElement => {
 
     return (
         <Box
-            sx={{
-                maxWidth: "22.5rem",
-                height: "12rem",
-                backgroundColor: "secondary.main",
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
-            }}
+            sx={topBoxStyle}
             component="form" noValidate autoComplete="off"
         >
             <FormControl>
@@ -52,9 +49,7 @@ export const FeedbackBox: FC = (): ReactElement => {
                     <Grid container direction="column" alignItems="center">
                         <Grid item xs={12} md={6}>
                             <Typography color="textMain"
-                                sx={{
-                                    fontFamily: "Montserrat", fontSize: "16px", fontWeight: "500",
-                                }}>
+                                sx={titleStyle}>
                                 {t("feedback.title", { ns: ['main'] })}
                             </Typography>
                         </Grid>
@@ -62,12 +57,7 @@ export const FeedbackBox: FC = (): ReactElement => {
                             <ButtonGroup sx={{ display: 'flex', gap: 0, position: "relative" }}>
                                 <OutlinedInput
                                     placeholder={getPlaceholder()}
-                                    sx={{
-                                        fontFamily: "Montserrat",
-                                        fontSize: "14px",
-                                        margin: "2rem 0 1rem",
-                                        width: "19rem"
-                                    }} />
+                                    sx={outlinedInputStyle} />
                                 <Box sx={{ position: "absolute", right: { right }, left: { left } }}>
                                     <FeedbackButton>
                                         {t("feedback.submit", { ns: ['main'] })}

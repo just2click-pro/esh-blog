@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 import {
     Box,
@@ -18,13 +18,10 @@ import { ReactComponent as EshLogo } from '../assets/esh.svg';
 import useChangeColorsOnRoute from "../hooks/useChangeColorsOnRoute";
 import LanguageSelector from "./LanguageSelector"
 
-import { ActionType } from '../store';
-import { useStateContext } from '../context/StateContext';
-
 import { routes } from "../routes";
 
 const Navbar: FC = (): ReactElement => {
-    const { state, dispatch } = useStateContext()
+    const location = useLocation()
     const { t } = useTranslation(['main'])
     const navigate = useNavigate()
 
@@ -68,8 +65,8 @@ const Navbar: FC = (): ReactElement => {
                                 onClick={() => {
                                     navigate("/")
                                 }}
-                                stroke={state.route === "/" ? "#2E2F38" : "white"}
-                                fill={state.route === "/" ? "#2E2F38" : "white"}
+                                stroke={location.pathname === "/" ? "#2E2F38" : "white"}
+                                fill={location.pathname === "/" ? "#2E2F38" : "white"}
                             />
                         </Box>
                     </Typography>
@@ -107,14 +104,7 @@ const Navbar: FC = (): ReactElement => {
                                 <NavLink
                                     to={{ pathname: page.path }}
                                     style={{ textDecoration: "none", color: "#2E2F38" }}
-                                    key={page.key}
-                                    onClick={() => {
-                                        dispatch({
-                                            type: ActionType.SET_ROUTE,
-                                            payload: page.path
-                                        })
-                                    }}
-                                >
+                                    key={page.key}>
                                     <MenuItem>
                                         <Typography
                                             textAlign="center"
@@ -142,8 +132,8 @@ const Navbar: FC = (): ReactElement => {
                                 onClick={() => {
                                     navigate("/")
                                 }}
-                                stroke={state.route === "/" ? "#2E2F38" : "white"}
-                                fill={state.route === "/" ? "#2E2F38" : "white"}
+                                stroke={location.pathname === "/" ? "#2E2F38" : "white"}
+                                fill={location.pathname === "/" ? "#2E2F38" : "white"}
                             />
                         </Box>
                     </Typography>
@@ -166,14 +156,7 @@ const Navbar: FC = (): ReactElement => {
                                         fontSize: "12px", fontFamily: "Montserrat",
                                         margin: "0 1rem",
                                         textDecoration: "none"
-                                    }}
-                                    onClick={() => {
-                                        dispatch({
-                                            type: ActionType.SET_ROUTE,
-                                            payload: page.path
-                                        })
-                                    }}
-                                >
+                                    }}>
                                     {t(page.title, { ns: ['main'] })}
                                 </NavLink>
                             ))}

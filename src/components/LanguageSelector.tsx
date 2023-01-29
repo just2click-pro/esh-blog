@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent, ReactElement, useEffect, useState } from 'react'
+import { useLocation } from "react-router-dom";
 
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import IconButton from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,6 +18,7 @@ interface LanguageType {
 }
 
 export const LanguageSelector: FC<any> = (): ReactElement => {
+    const location = useLocation()
     const { state, dispatch } = useStateContext()
 
     const [anchor, setAnchor] = useState(null);
@@ -50,8 +51,8 @@ export const LanguageSelector: FC<any> = (): ReactElement => {
     };
 
     useEffect(() => {
-        setColor(state.route === "/" ? "black" : "white")
-    }, [state.route])
+        setColor(location.pathname === "/" ? "black" : "white")
+    }, [location.pathname])
 
     return (
         <div>
